@@ -1,0 +1,28 @@
+{
+  "baseline": {
+    "label": "baseline",
+    "seed": 20240517,
+    "warmup_iters": 1,
+    "measure_iters": 10,
+    "latency_ms": 58.89095216989517,
+    "throughput_per_s": 16.980537130985567,
+    "max_memory_bytes": 77176832,
+    "device_type": "cuda",
+    "correctness": true,
+    "correctness_max_abs_diff": 0.0,
+    "correctness_max_rel_diff": 0.0
+  },
+  "candidate": {
+    "label": "candidate",
+    "seed": 20240517,
+    "warmup_iters": 1,
+    "measure_iters": 10,
+    "latency_ms": 54.29917201399803,
+    "throughput_per_s": 18.416487082753406,
+    "max_memory_bytes": 77176832,
+    "device_type": "cuda",
+    "correctness": true,
+    "correctness_max_abs_diff": 0.0,
+    "correctness_max_rel_diff": 0.0
+  }
+}

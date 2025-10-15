@@ -1,0 +1,15 @@
+name: "example_linear"
+description: "Two-layer MLP forward pass with GELU activation."
+device: "cuda"
+model:
+  module: "model"
+  class_name: "FeedForward"
+inputs:
+  args:
+    - name: "x"
+      shape: [16, 1024]
+      dtype: "float32"
+      distribution: "normal" #uniform和normal
+      mean: 0.0
+      std: 1.0
+  kwargs: {}

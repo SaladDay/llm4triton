@@ -1,0 +1,20 @@
+name: "<case_name>"
+description: "Short description of the workload and the targeted hotspot."
+device: "cuda"
+model:
+  module: "model"
+  class_name: "TemplateModel"
+  init_kwargs: {}
+inputs:
+  args:
+    - name: "<input_name>"
+      shape: ["<batch>", "<features>"]
+      dtype: "float32"
+      distribution: "normal"
+      mean: 0.0
+      std: 1.0
+  kwargs: {}
+weights:
+  # Optional. If omitted, the framework caches the model's default state_dict().
+  # function: "provide_initial_weights"
+  # call_kwargs: {}

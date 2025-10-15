@@ -1,0 +1,13 @@
+{
+  "label": "baseline",
+  "seed": 20240517,
+  "warmup_iters": 1,
+  "measure_iters": 10,
+  "latency_ms": 69.83223743736744,
+  "throughput_per_s": 14.320033793803333,
+  "max_memory_bytes": null,
+  "device_type": "cpu",
+  "correctness": true,
+  "correctness_max_abs_diff": 0.0,
+  "correctness_max_rel_diff": 0.0
+}
