@@ -11,6 +11,7 @@
 - Assemble the LangGraph workflow linking Strategy Analyst and Triton Code Engineer nodes using shared state for metrics, manifests, and profiler outputs.
 - Integrate `profiler_tool` and `verification_tool` invocations so strategy decisions trigger Triton code generation, iterative debugging, and correctness/performance validation.
 - Implement workflow governance: decision -> implementation -> verification loop, culminating in handoff to the archiver node when optimization goals are met.
+- Establish a central configuration module that loads a repository-level `.env` file (via `python-dotenv` or equivalent) so agent and experiment parameters can be managed without editing source code.
 
 ## Milestone 3 – Experiment Archiving & Developer Ops
 - Finalize the archiver node to bundle code, agent dialogues, profiler traces, and metrics under `archive/{timestamp}-{experiment}-{speedup}`.

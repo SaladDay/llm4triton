@@ -281,7 +281,8 @@ def _capture_profiler_trace(
     if torch.cuda.is_available():
         activities.append(torch.profiler.ProfilerActivity.CUDA)
 
-    schedule = torch.profiler.schedule(wait=0, warmup=1, active=3, repeat=1)
+    wait, warmup, active, repeat = 0, 1, 3, 1
+    schedule = torch.profiler.schedule(wait=wait, warmup=warmup, active=active, repeat=repeat)
     trace_path = output_dir / "trace.json"
 
     with torch.profiler.profile(
@@ -289,7 +290,7 @@ def _capture_profiler_trace(
         schedule=schedule,
         on_trace_ready=lambda prof: prof.export_chrome_trace(str(trace_path)),
     ) as prof:
-        steps = schedule.num_steps()
+        steps = (wait + warmup + active) * repeat
         with torch.inference_mode():
             for _ in range(steps):
                 forward_impl()

@@ -7,6 +7,7 @@ This project uses a two-agent workflow orchestrated with LangGraph to profile Py
 - **Profiler Access**: Both agents may request measurements via the `torch.profiler` tool wrapper exposed as `profiler_tool`.
 - **Verification Tooling**: A `verification_tool` executes end-to-end regression checks (correctness, performance, compilation). Any failure must be propagated back to the Triton Code Engineer for iterative fixes.
 - **Archiving**: Experiments conclude by writing a bundle to `archive/{timestamp}-{experiment_name}-{speedup}` that captures generated code, agent dialogues, profiler traces, and intermediate assets.
+- **Configuration Registry**: Agent-wide and experiment-specific toggles live in a repository-level `.env` file that is loaded before the LangGraph workflow starts (e.g., via `python-dotenv`). The file centralizes shared secrets, default device selections, and feature flags while still permitting per-run overrides through the shell environment.
 
 ### Evaluation Harness Design
 - `harness/cases.py` parses `cases/<case_name>/manifest.yaml`, imports the declared `torch.nn.Module` from `model.py`, and builds deterministic input/weight factories.
